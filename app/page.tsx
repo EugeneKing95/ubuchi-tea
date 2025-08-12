@@ -3,16 +3,18 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import Navbar from "@/components/Navbar"
-import heroSection from "@/components/heroSection"
 import HeroSection from "@/components/HeroSection"
+import ProductCard from "@/components/productCard"
 
 export default function HomePage() {
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#EADDCF" }}>
       {/* Top Banner */}
       <div className="text-white text-center py-2 text-sm" style={{ backgroundColor: "#3B5044" }}>
-        Free shipping on orders over $75
-        <button className="ml-4 opacity-70 hover:opacity-100">×</button>
+        <span className="font-light tracking-wide">
+          Free shipping on orders over $50
+        </span>
       </div>
 
       {/* Header Navigation */}
@@ -21,96 +23,22 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section - Split Screen */}
-      <section >
-        <HeroSection />
-      </section>
+      <HeroSection />
 
       {/* Product Grid */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Product 1 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square mb-4 overflow-hidden rounded-sm">
-                <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  alt="Harmony Blend"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-light text-sm mb-1" style={{ color: "#3B5044" }}>
-                Harmony Blend
-              </h3>
-              <p className="text-sm" style={{ color: "#C47C55" }}>
-                $28.00
-              </p>
-            </div>
-
-            {/* Product 2 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square mb-4 overflow-hidden rounded-sm">
-                <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  alt="Vitality Boost"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-light text-sm mb-1" style={{ color: "#3B5044" }}>
-                Vitality Boost
-              </h3>
-              <p className="text-sm" style={{ color: "#C47C55" }}>
-                $32.00
-              </p>
-            </div>
-
-            {/* Product 3 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square mb-4 overflow-hidden rounded-sm">
-                <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  alt="Dreamtime Ritual"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-light text-sm mb-1" style={{ color: "#3B5044" }}>
-                Dreamtime Ritual
-              </h3>
-              <p className="text-sm" style={{ color: "#C47C55" }}>
-                $26.00
-              </p>
-            </div>
-
-            {/* Product 4 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square mb-4 overflow-hidden rounded-sm">
-                <Image
-                  src="/placeholder.svg?height=400&width=400"
-                  alt="Ritual Collection"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-light text-sm mb-1" style={{ color: "#3B5044" }}>
-                Ritual Collection
-              </h3>
-              <p className="text-sm" style={{ color: "#C47C55" }}>
-                $78.00
-              </p>
-            </div>
-          </div>
+          <ProductCard />
         </div>
       </section>
 
+
+
       {/* Secondary Hero - Full Width */}
       <section className="relative h-96 mb-16">
-        <Image src="/placeholder.svg?height=400&width=1200" alt="Our farmers" fill className="object-cover" />
+        <Image src="/farm.jpgj
+          height={400}
+          width={1200} alt="Our farmers" fill className="object-cover" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(59, 80, 68, 0.3)" }} />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white max-w-2xl px-6">

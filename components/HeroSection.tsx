@@ -1,47 +1,43 @@
 import Image from "next/image";
-import { Button } from "./ui/button";
-// import hero from ".../public/hero.jpg";
-import Hero from "@/public/hero.jpeg"
-// import Button from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+
 export default function HeroSection() {
   return (
-    <div className="relative h-screen flex">
-      < div className="w-1 /2 relative" >
-        < Image
-          src="/placeholder.svg?height=800&width=600"
+    <div className="relative h-screen flex flex-col md:flex-row overflow-hidden">
+      {/* Left Side */}
+      <div className="relative w-full md:w-1/2 h-1/2 md:h-full">
+        <Image
+          src="/tea.jpg"
           alt="Woman enjoying tea ritual"
           fill
           className="object-cover"
           priority
         />
-      </div >
+      </div>
 
       {/* Right Side */}
-      < div className="w-1/2 relative" >
-        <Image src=".../public/hero.jpeg" height={800} width={600} alt="Tea package detail" fill className="object-cover" />
+      <div className="relative w-full md:w-1/2 h-1/2 md:h-full">
+        <Image
+          src="/woman.jpg"
+          alt="Tea package detail"
+          fill
+          className="object-cover"
+        />
+      </div>
 
-        {/* Overlay Text */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1
-              className="text-4xl md:text-5xl font-light mb-6 tracking-wide"
-              style={{ fontFamily: "serif", color: "#FFF942" }}
-            >
-              The Harmony Collection
-            </h1>
-            <Button
-              className="px-8 py-3 text-sm font-light tracking-wider border-2 hover:opacity-90 transition-opacity bg-transparent"
-              style={{
-                backgroundColor: "transparent",
-                borderColor: "#FFF942",
-                color: "#FFF942",
-              }}
-              variant="outline"
-            >
-              Shop Now
-            </Button>
-          </div>
-        </div>
-      </div >
-    </div >)
+      {/* Centered Overlay */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+        <h1 className="text-3xl md:text-5xl font-light text-white mb-6 font-serif">
+          The Harmony Collection
+        </h1>
+        <Button
+          className="px-8 py-3 text-sm font-light tracking-wider border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition duration-300"
+          variant="outline"
+        >
+          Shop Now
+        </Button>
+      </div>
+    </div>
+  );
 }
+
