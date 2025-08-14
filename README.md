@@ -29,8 +29,31 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📚 What I Learned doing this project
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+While working on this project, I discovered an important best practice when using **Mongoose** with environments like **Next.js**.
+
+In development, Next.js reloads and re-imports files multiple times due to hot reloading or when API routes are called.
+If you register the same model more than once like this:
+
+```js
+const Product = mongoose.model('Products', ProductSchema);
+``````
+
+## 🐛 The Error
+
+When working with **Mongoose** in environments like **Next.js**, you might eventually run into the following error:
+
+
+This happens because Next.js reloads and re-imports files multiple times in development, which causes the same model to be registered more than once.
+
+---
+
+## ✅ The Solution
+
+Instead of always creating the model, I check if it already exists and reuse it:
+
+```js
+const Product = mongoose.models.Products || mongoose.model('Products', ProductSchema);
+
