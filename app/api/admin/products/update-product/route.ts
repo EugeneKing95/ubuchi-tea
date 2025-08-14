@@ -1,6 +1,6 @@
 import connectToDatabase from "@/DB/config";
 import { NextResponse } from "next/server";
-import Product from "@/model/product";
+import { Product } from "@/model/product";
 
 export async function PUT(req: Request) {
   try {

@@ -2,7 +2,7 @@
 
 import connectToDatabase from "@/DB/config";
 import { NextResponse } from "next/server";
-import Product from "@/models/Product";
+import { Product } from "@/models/Product";
 import Joi from "joi";
 
 const AddProductSchema = Joi.object({
