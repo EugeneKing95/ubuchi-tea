@@ -1,8 +1,4 @@
-// import connectDB from "@/DB/connectDB";
-
-import AuthCheck from "@/middleware/AuthCheck";
 import { NextResponse } from "next/server";
-// import { Category } from "@/model/Category";
 import connectToDatabase from "@/DB/config";
 import { Category } from "@/model/category";
 

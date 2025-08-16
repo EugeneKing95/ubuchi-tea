@@ -1,21 +1,25 @@
 import Cookies from "js-cookie";
 
-export const add_new_category = (async = (formData: any) => {
+export const add_new_category = async (formData: any) => {
   try {
     const res = await fetch(`/api/admin/category/add_new_category`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${Cookies.get("token")}`,
       },
       body: JSON.stringify(formData),
     });
-    const data = await res.json();
-    return data;
+
+    if (!res.ok) {
+      throw new Error(`Failed to add category: ${res.statusText}`);
+    }
+
+    return await res.json();
   } catch (error) {
-    console.log("Error in Add new Category ", error);
+    console.error("Error in Add new Category:", error);
+    throw error;
   }
-});
+};
 
 export const get_all_categories = async () => {
   try {

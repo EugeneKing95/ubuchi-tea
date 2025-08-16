@@ -28,11 +28,11 @@ export async function GET() {
           status: "healthy",
           categoryCount,
           productCount,
-          categories: categories.map((cat) => ({
+          categories: categories.map((cat: any) => ({
             categoryName: cat.categoryName,
             categorySlug: cat.categorySlug,
           })),
-          products: products.map((prod) => ({
+          products: products.map((prod: any) => ({
             productsName: prod.productsName,
             productSlug: prod.productSlug,
             productsCategory: prod.productsCategory,

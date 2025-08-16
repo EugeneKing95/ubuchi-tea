@@ -5,8 +5,8 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request) {
   try {
     await connectToDatabase();
-    const { serchParams } = new URL(req.url);
-    const id = serchParams.get("id");
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
 
     const deleteData = await Category.findByIdAndDelete(id);
 

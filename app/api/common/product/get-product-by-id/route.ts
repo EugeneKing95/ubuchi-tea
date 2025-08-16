@@ -13,7 +13,6 @@ export async function GET(req: Request) {
       return NextResponse.json(
         { message: "Product ID is required" },
         { status: 400 },
-        { success: false },
       );
     }
 
@@ -35,7 +34,6 @@ export async function GET(req: Request) {
     return NextResponse.json(
       { message: "Something went wrong. Please try again!" },
       { status: 500 },
-      { success: false },
     );
   }
 }
