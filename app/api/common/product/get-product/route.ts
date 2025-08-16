@@ -1,6 +1,8 @@
 import connectToDatabase from "@/DB/config";
-import Product from "@/model/product";
-import Category from "@/model/category";
+import { Category } from "@/model/category";
+import { Product } from "@/model/product";
+// import Product from "@/model/product";
+// import Category from "@/model/category";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {

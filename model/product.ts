@@ -2,21 +2,22 @@ import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema(
   {
-    productName: String,
-    productSlug: String,
+    productName: { type: String, required: true },
+    productSlug: { type: String, required: true, unique: true },
     productDescription: String,
     productImage: String,
-    productCategory: String,
-    producrQuantity: Number,
-    productPrice: Number,
+    productQuantity: { type: Number, default: 0 },
+    productPrice: { type: Number, required: true },
+
+    // Relationship to Category
     productCategory: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Categories",
-      require: true,
+      required: true,
     },
   },
   { timestamps: true },
 );
 
 export const Product =
-  mongoose.model.Product || mongoose.model("Products", ProductSchema);
+  mongoose.models.Products || mongoose.model("Products", ProductSchema);

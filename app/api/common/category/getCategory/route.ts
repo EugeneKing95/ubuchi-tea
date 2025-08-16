@@ -1,12 +1,15 @@
-import connectDB from "@/DB/connectDB";
+// import connectDB from "@/DB/connectDB";
+
 import AuthCheck from "@/middleware/AuthCheck";
 import { NextResponse } from "next/server";
-import Category from "@/model/Category";
+// import { Category } from "@/model/Category";
+import connectToDatabase from "@/DB/config";
+import { Category } from "@/model/category";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  await connectDB();
+  await connectToDatabase();
   try {
     const getData = await Category.find({});
     if (getData) {

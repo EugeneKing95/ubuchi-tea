@@ -1,11 +1,13 @@
-import connectDB from "@/DB/connectDB";
+// import connectDB from "@/DB/connectDB";
+import connectToDatabase from "@/DB/config";
+import { Category } from "@/model/category";
 import { NextResponse } from "next/server";
-import Category from "@/model/Category";
+// import Category from "@/model/Category";
 
 export const dynamic = "force-dynamic";
 
 export async function GET(req: Request) {
-  await connectDB();
+  await connectToDatabase();
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");

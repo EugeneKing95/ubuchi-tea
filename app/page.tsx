@@ -1,17 +1,19 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import Link from "next/link"
-import Navbar from "@/components/Navbar"
-import HeroSection from "@/components/HeroSection"
-import ProductCard from "@/components/productCard"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import ProductCard from "@/components/productCard";
 
 export default function HomePage() {
-
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#EADDCF" }}>
       {/* Top Banner */}
-      <div className="text-white text-center py-2 text-sm" style={{ backgroundColor: "#3B5044" }}>
+      <div
+        className="text-white text-center py-2 text-sm"
+        style={{ backgroundColor: "#3B5044" }}
+      >
         <span className="font-light tracking-wide">
           Free shipping on orders over $50
         </span>
@@ -32,14 +34,15 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* Secondary Hero - Full Width */}
       <section className="relative h-96 mb-16">
-        <Image src="/farm.jpgj
-          height={400}
-          width={1200} alt="Our farmers" fill className="object-cover" />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(59, 80, 68, 0.3)" }} />
+        <Image
+          src="/farm.jpg"
+          alt="Picture of the author"
+          width={500}
+          height={500}
+        />
+        <div className="absolute inset-0 bg-[rgba(59,80,68,0.3)]" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white max-w-2xl px-6">
             <h2
@@ -75,7 +78,10 @@ export default function HomePage() {
           >
             Join the Ritual
           </h2>
-          <p className="mb-8 max-w-md mx-auto font-light" style={{ color: "#EADDCF" }}>
+          <p
+            className="mb-8 max-w-md mx-auto font-light"
+            style={{ color: "#EADDCF" }}
+          >
             Receive early access to new collections and wellness insights
           </p>
           <div className="max-w-sm mx-auto flex">
@@ -96,11 +102,17 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white py-12" style={{ borderTop: "1px solid #EADDCF" }}>
+      <footer
+        className="bg-white py-12"
+        style={{ borderTop: "1px solid #EADDCF" }}
+      >
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="font-light text-sm mb-4 tracking-wider" style={{ color: "#3B5044" }}>
+              <h3
+                className="font-light text-sm mb-4 tracking-wider"
+                style={{ color: "#3B5044" }}
+              >
                 SHOP
               </h3>
               <ul className="space-y-2">
@@ -132,7 +144,11 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/gift-sets" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/gift-sets"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Gift Sets
                   </Link>
                 </li>
@@ -140,17 +156,28 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="font-light text-sm mb-4 tracking-wider" style={{ color: "#3B5044" }}>
+              <h3
+                className="font-light text-sm mb-4 tracking-wider"
+                style={{ color: "#3B5044" }}
+              >
                 COMPANY
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/about" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/about"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/farmers" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/farmers"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Our Farmers
                   </Link>
                 </li>
@@ -164,7 +191,11 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/press" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/press"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Press
                   </Link>
                 </li>
@@ -172,27 +203,46 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="font-light text-sm mb-4 tracking-wider" style={{ color: "#3B5044" }}>
+              <h3
+                className="font-light text-sm mb-4 tracking-wider"
+                style={{ color: "#3B5044" }}
+              >
                 SUPPORT
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/contact" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/contact"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/shipping" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/shipping"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Shipping
                   </Link>
                 </li>
                 <li>
-                  <Link href="/returns" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/returns"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Returns
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faq" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/faq"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     FAQ
                   </Link>
                 </li>
@@ -200,22 +250,37 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="font-light text-sm mb-4 tracking-wider" style={{ color: "#3B5044" }}>
+              <h3
+                className="font-light text-sm mb-4 tracking-wider"
+                style={{ color: "#3B5044" }}
+              >
                 CONNECT
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/instagram" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/instagram"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Instagram
                   </Link>
                 </li>
                 <li>
-                  <Link href="/newsletter" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/newsletter"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Newsletter
                   </Link>
                 </li>
                 <li>
-                  <Link href="/rituals" className="hover:opacity-70 text-sm font-light" style={{ color: "#3B5D44" }}>
+                  <Link
+                    href="/rituals"
+                    className="hover:opacity-70 text-sm font-light"
+                    style={{ color: "#3B5D44" }}
+                  >
                     Tea Rituals
                   </Link>
                 </li>
@@ -235,16 +300,28 @@ export default function HomePage() {
                 We accept:
               </span>
               <div className="flex space-x-2">
-                <div className="text-white px-2 py-1 text-xs font-light" style={{ backgroundColor: "#C9A063" }}>
+                <div
+                  className="text-white px-2 py-1 text-xs font-light"
+                  style={{ backgroundColor: "#C9A063" }}
+                >
                   VISA
                 </div>
-                <div className="text-white px-2 py-1 text-xs font-light" style={{ backgroundColor: "#C9A063" }}>
+                <div
+                  className="text-white px-2 py-1 text-xs font-light"
+                  style={{ backgroundColor: "#C9A063" }}
+                >
                   MC
                 </div>
-                <div className="text-white px-2 py-1 text-xs font-light" style={{ backgroundColor: "#C9A063" }}>
+                <div
+                  className="text-white px-2 py-1 text-xs font-light"
+                  style={{ backgroundColor: "#C9A063" }}
+                >
                   AMEX
                 </div>
-                <div className="text-white px-2 py-1 text-xs font-light" style={{ backgroundColor: "#C9A063" }}>
+                <div
+                  className="text-white px-2 py-1 text-xs font-light"
+                  style={{ backgroundColor: "#C9A063" }}
+                >
                   PayPal
                 </div>
               </div>
@@ -253,5 +330,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

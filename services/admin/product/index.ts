@@ -2,11 +2,11 @@ import Cookies from "js-cookie";
 
 export const add_new_product = async (formatData: any) => {
   try {
-    const res = await fetch("/api/Admin/product/add-product", {
+    const res = await fetch("/api/admin/products/add-product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${Cookies.get("token")}`,
+        // Authorization: `Bearer ${Cookies.get("token")}`,
       },
       body: JSON.stringify(formatData),
     });
@@ -14,7 +14,7 @@ export const add_new_product = async (formatData: any) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("Error adding new product:", error);
+    console.error("Error adding new product: try again later ", error);
   }
 };
 

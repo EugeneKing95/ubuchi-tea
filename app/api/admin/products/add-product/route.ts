@@ -1,62 +1,69 @@
-// console.log("Products route called");
-
-import connectToDatabase from "@/DB/config";
 import { NextResponse } from "next/server";
-import { Product } from "@/models/Product";
 import Joi from "joi";
+import connectToDatabase from "@/DB/config";
+import { Product } from "@/model/product";
 
 const AddProductSchema = Joi.object({
-  productsName: Joi.string().required(),
-  productsPrice: Joi.number().required(),
-  productsDescription: Joi.string().required(),
-  ProductImage: Joi.string().required(),
-  productsCategory: Joi.required(),
-  productsQuantity: Joi.number().required(),
+  productName: Joi.string().required(),
+  productDescription: Joi.string().required(),
+  productImage: Joi.string().required(),
+  productQuantity: Joi.number().required(),
+  productSlug: Joi.string().required(),
+  productPrice: Joi.number().required(),
+  productCategory: Joi.required(),
 });
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: Request) {
+  await connectToDatabase();
   try {
-    await connectToDatabase();
     const data = await req.json();
 
     const {
-      productsName,
-      productsPrice,
-      productsDescription,
-      ProductImage,
-      productsCategory,
-      productsQuantity,
+      productCategory,
+      productDescription,
+      productImage,
+      productName,
+      productPrice,
+      productQuantity,
+      productSlug,
     } = data;
 
-    const { error } = AddProductSchema.validate(data);
-    console.log(data);
+    const { error } = AddProductSchema.validate({
+      productDescription,
+      productCategory,
+      productImage,
+      productName,
+      productPrice,
+      productQuantity,
+      productSlug,
+    });
 
-    if (error) {
+    if (error)
       return NextResponse.json({
         success: false,
-        message: error.details[0].message.replace(/["']+/g, ""),
+        message: error.details[0].message.replace(/['"]+/g, ""),
       });
-    }
 
-    const saveProduct = await Product.create(data);
+    const saveData = await Product.create(data);
 
-    if (saveProduct) {
+    if (saveData) {
       return NextResponse.json({
         success: true,
-        message: "Product added successfully",
-        data: saveProduct,
+        message: "Product added successfully!",
       });
     } else {
       return NextResponse.json({
         success: false,
-        message: "Product not added",
+        message: "Failed to add the Product. Please try again!",
       });
     }
   } catch (error) {
-    console.error("Error in POST /api/products:", error);
+    console.log("Error in adding a new Product:", error);
     return NextResponse.json({
       success: false,
-      message: "something went weong. Please try again later.",
+      message: "Something went wrong. Please try again!",
     });
   }
 }

@@ -1,26 +1,22 @@
 import connectToDatabase from "@/DB/config";
 import { Category } from "@/model/category";
-impor Joi fomr "joi";
+import Joi from "joi";
+import { NextResponse } from "next/server";
 
 const AddCategorySchema = Joi.object({
   categoryName: Joi.string().required(),
   categoryDescription: Joi.string().required(),
   categoryImage: Joi.string().required(),
   categorySlug: Joi.string().required(),
-})
-
+});
 
 export async function POST(req: Request) {
-  try{
-    await connectToDatabase()
+  try {
+    await connectToDatabase();
     const data = await req.json();
-    const { categoryName, categoryDescription, categoryImage, categorySlug } = data;
-    const { error } = AddCategorySchema.validate({
-      categoryName,
-      categoryDescription,
-      categoryImage,
-      categorySlug
-    });
+    const { categoryName, categoryDescription, categoryImage, categorySlug } =
+      data;
+    const { error } = AddCategorySchema.validate(data);
     if (error) {
       return NextResponse.json({
         success: false,
@@ -35,7 +31,7 @@ export async function POST(req: Request) {
         data: saveCategory,
       });
     }
-  }catch{
+  } catch {
     return NextResponse.json({
       success: false,
       message: "Something went wrong. Please try again later.",
