@@ -9,6 +9,7 @@ import { ProductCard } from "@/components/productCard/productCard";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
 import TopBanner from "@/components/topBanner";
+import FeatureCards from "@/components/featureCard";
 // import ProductCard from "@/components/productCard";
 
 export default function HomePage() {
@@ -29,7 +30,7 @@ export default function HomePage() {
         <div className="container mx-auto px-6">
           {/* <ProductCard /> */}
 
-          {/* <FeaturedProducts /> */}
+          <FeatureCards />
         </div>
       </section>
 
