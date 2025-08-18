@@ -40,7 +40,17 @@ export function ProductCard({ product }: ProductCardProps) {
         <p className="text-lg font-bold mt-3">${product.productPrice}</p>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button className="w-full" onClick={() => addToCart(product)}>
+        <Button
+          className="w-full"
+          onClick={() =>
+            addToCart({
+              id: product.productSlug, // or product._id if available
+              name: product.productName,
+              price: product.productPrice,
+              quantity: 1,
+            })
+          }
+        >
           Add to Cart
         </Button>
       </CardFooter>
