@@ -16,7 +16,7 @@ export default async function FeatureCards() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-      {products.slice(0, 4).map((product) => (
+      {products.slice(0, 1).map((product) => (
         <ProductCard key={product._id} product={product} />
       ))}
     </div>
