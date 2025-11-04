@@ -7,7 +7,7 @@ export default async function ProductsPage() {
   const res = await fetch(
     "http://localhost:3000/api/common/product/get-product",
     {
-      cache: "no-store",
+          cache: "no-store",
     },
   );
 
